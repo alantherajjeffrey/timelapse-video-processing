@@ -1,0 +1,32 @@
+[build-system]
+requires = ["setuptools>=69"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "timelapse-video-processing"
+version = "0.9.0"
+description = "Timelapse videos, composites, montages and quantification for Etaluma LS720 captures"
+requires-python = ">=3.12"
+license = {text = "MIT"}
+dependencies = [
+  "PySide6",
+  "numpy",
+  "opencv-python-headless",
+  "tifffile",
+  "imagecodecs",
+  "imageio-ffmpeg",
+  "pillow",
+]
+
+[project.optional-dependencies]
+dev = ["pytest", "pytest-qt", "pyinstaller"]
+
+[project.scripts]
+etaluma-video = "etaluma_video.__main__:main"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["etaluma_video*"]
+
+[tool.pytest.ini_options]
+testpaths = ["../tests"]

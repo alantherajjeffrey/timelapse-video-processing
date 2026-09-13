@@ -1,0 +1,231 @@
+{
+  "schema": 1,
+  "note": "Ground truth for the burned-in Lumaview scale bars of the nine sample experiments. bar_px, boxes and white_median are measured by tools/probe_scale_bars.py; label_um and objective were read visually from the 2x bottom-right crops it writes. Frames are relative to the samples root (ETALUMA_SAMPLES, default ../private/Sample set).",
+  "experiments": [
+    {
+      "experiment": "20230213_112259 - CFDA after 2 days",
+      "frame": "20230213_112259 - CFDA after 2 days/ROI-1/MyExperiment_ROI-1_WHITE_000000.tif",
+      "channel": "WHITE",
+      "bar_px": 120,
+      "label_um": 100.0,
+      "objective": "10x",
+      "pixel_size_um": 0.833333,
+      "table_pixel_size_um": 0.826,
+      "relative_difference": 0.008878,
+      "disagreement_expected": false,
+      "white_median": 32.0,
+      "label_box": [
+        1816,
+        1831,
+        1738,
+        1823
+      ],
+      "bar_box": [
+        1841,
+        1847,
+        1721,
+        1841
+      ]
+    },
+    {
+      "experiment": "20250317_115335",
+      "frame": "20250317_115335/Timelapse_ROI-10j_WHITE_000000.tif",
+      "channel": "WHITE",
+      "bar_px": 240,
+      "label_um": 200.0,
+      "objective": "10x",
+      "pixel_size_um": 0.833333,
+      "table_pixel_size_um": 0.826,
+      "relative_difference": 0.008878,
+      "disagreement_expected": false,
+      "white_median": 171.0,
+      "label_box": [
+        1816,
+        1831,
+        1677,
+        1762
+      ],
+      "bar_box": [
+        1841,
+        1847,
+        1601,
+        1841
+      ]
+    },
+    {
+      "experiment": "20250522_200426_HepaRG_CFDA working",
+      "frame": "20250522_200426_HepaRG_CFDA working/ROI-1b/WHITE/Timelapse_ROI-1b_WHITE_000000.tif",
+      "channel": "WHITE",
+      "bar_px": 96,
+      "label_um": 200.0,
+      "objective": "4x",
+      "pixel_size_um": 2.083333,
+      "table_pixel_size_um": 2.068,
+      "relative_difference": 0.007415,
+      "disagreement_expected": false,
+      "white_median": 99.0,
+      "label_box": [
+        1816,
+        1831,
+        1754,
+        1831
+      ],
+      "bar_box": [
+        1841,
+        1847,
+        1745,
+        1841
+      ]
+    },
+    {
+      "experiment": "20250708_192541_Insphero_after CF double wash",
+      "frame": "20250708_192541_Insphero_after CF double wash/Timelapse_ROI-1a_AZR_cf_WHITE_000000.tif",
+      "channel": "WHITE",
+      "bar_px": 241,
+      "label_um": 200.0,
+      "objective": "10x",
+      "pixel_size_um": 0.829876,
+      "table_pixel_size_um": 0.826,
+      "relative_difference": 0.004692,
+      "disagreement_expected": false,
+      "white_median": 52.0,
+      "label_box": [
+        1816,
+        1831,
+        1676,
+        1762
+      ],
+      "bar_box": [
+        1841,
+        1847,
+        1600,
+        1841
+      ]
+    },
+    {
+      "experiment": "20260202_101918",
+      "frame": "20260202_101918/ROI-1a/*_ROI-1a_WHITE_000000.tif",
+      "channel": "WHITE",
+      "bar_px": 120,
+      "label_um": 100.0,
+      "objective": "10x",
+      "pixel_size_um": 0.833333,
+      "table_pixel_size_um": 0.826,
+      "relative_difference": 0.008878,
+      "disagreement_expected": false,
+      "white_median": 71.0,
+      "label_box": [
+        1816,
+        1831,
+        1738,
+        1823
+      ],
+      "bar_box": [
+        1841,
+        1847,
+        1721,
+        1841
+      ]
+    },
+    {
+      "experiment": "20260204_1410088Diffusion test new chip",
+      "frame": "20260204_1410088Diffusion test new chip/ROI-1/*_WHITE_000000.tif",
+      "channel": "WHITE",
+      "bar_px": 120,
+      "label_um": 100.0,
+      "objective": "10x",
+      "pixel_size_um": 0.833333,
+      "table_pixel_size_um": 0.826,
+      "relative_difference": 0.008878,
+      "disagreement_expected": false,
+      "white_median": 70.0,
+      "label_box": [
+        1816,
+        1831,
+        1738,
+        1823
+      ],
+      "bar_box": [
+        1841,
+        1847,
+        1721,
+        1841
+      ]
+    },
+    {
+      "experiment": "20260209_193439-THP-1 LPS test",
+      "frame": "20260209_193439-THP-1 LPS test/ROI-1a1000/*_ROI-1a1000_WHITE_000000.tif",
+      "channel": "WHITE",
+      "bar_px": 120,
+      "label_um": 100.0,
+      "objective": "10x",
+      "pixel_size_um": 0.833333,
+      "table_pixel_size_um": 0.826,
+      "relative_difference": 0.008878,
+      "disagreement_expected": false,
+      "white_median": 38.0,
+      "label_box": [
+        1816,
+        1831,
+        1738,
+        1823
+      ],
+      "bar_box": [
+        1841,
+        1847,
+        1721,
+        1841
+      ]
+    },
+    {
+      "experiment": "20260313_195541_CD14",
+      "frame": "20260313_195541_CD14/ROI-1s1a/*_ROI-1s1a_WHITE_000000.tif",
+      "channel": "WHITE",
+      "bar_px": 120,
+      "label_um": 100.0,
+      "objective": "10x",
+      "pixel_size_um": 0.833333,
+      "table_pixel_size_um": 0.826,
+      "relative_difference": 0.008878,
+      "disagreement_expected": false,
+      "white_median": 60.0,
+      "label_box": [
+        1816,
+        1831,
+        1738,
+        1823
+      ],
+      "bar_box": [
+        1841,
+        1847,
+        1721,
+        1841
+      ]
+    },
+    {
+      "experiment": "20260707_221520-verify if power",
+      "frame": "20260707_221520-verify if power/ROI-1a/*_ROI-1a_WHITE_000000.tif",
+      "channel": "WHITE",
+      "bar_px": 603,
+      "label_um": 500.0,
+      "objective": "10x",
+      "pixel_size_um": 0.829187,
+      "table_pixel_size_um": 0.826,
+      "relative_difference": 0.003859,
+      "disagreement_expected": false,
+      "white_median": 5.0,
+      "label_box": [
+        1816,
+        1831,
+        1495,
+        1581
+      ],
+      "bar_box": [
+        1841,
+        1847,
+        1238,
+        1841
+      ]
+    }
+  ]
+}
