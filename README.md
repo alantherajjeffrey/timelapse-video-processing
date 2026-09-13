@@ -8,7 +8,14 @@ For Etaluma LS720 captures. Developed by **BIOMIS Team, SATIE laboratory, ENS Pa
 
 ![The main window with a synthetic demo experiment](docs/images/main_window.png)
 
-**Download for Windows:** [Timelapse-Video-Processing-Setup.exe](https://github.com/alantherajjeffrey/timelapse-video-processing/releases/latest/download/Timelapse-Video-Processing-Setup.exe), the latest release (every version is on the [Releases page](https://github.com/alantherajjeffrey/timelapse-video-processing/releases)).
+## Download for Windows
+
+| What | Link |
+|---|---|
+| **Everything in one zip**: installer, uninstaller, install steps (README.txt), checksums, licences | [**Timelapse-Video-Processing-Windows.zip**](https://github.com/alantherajjeffrey/timelapse-video-processing/releases/latest/download/Timelapse-Video-Processing-Windows.zip) |
+| The installer alone | [Timelapse-Video-Processing-Setup.exe](https://github.com/alantherajjeffrey/timelapse-video-processing/releases/latest/download/Timelapse-Video-Processing-Setup.exe) |
+
+Unpack the zip (right-click, **Extract All**), then double-click `Timelapse-Video-Processing-Setup.exe`. Windows 10 or 11, 64-bit; no administrator rights, no Python. The links always give the latest version; every version is on the [Releases page](https://github.com/alantherajjeffrey/timelapse-video-processing/releases). GitHub's green **Code → Download ZIP** button gives the source code instead, not the ready-to-install zip.
 
 ## What it does
 
@@ -21,9 +28,9 @@ For Etaluma LS720 captures. Developed by **BIOMIS Team, SATIE laboratory, ENS Pa
 - **Adds montages and measurements**: timepoint montages rendered like the videos; for single images, composites, panels, positive-pixel masks and a quantification table.
 - **Reads the objective from the image**: the scale bar Lumaview burns into every image gives the pixel size.
 
-## Download and install
+## Install and uninstall
 
-Download [`Timelapse-Video-Processing-Setup.exe`](https://github.com/alantherajjeffrey/timelapse-video-processing/releases/latest/download/Timelapse-Video-Processing-Setup.exe) from the [Releases page](https://github.com/alantherajjeffrey/timelapse-video-processing/releases/latest) and run it. The same installer is also at the top of the repository (`Timelapse-Video-Processing-Setup.exe`), with the uninstaller and `SHA256SUMS.txt`; the Releases page keeps every version. It installs for the current Windows user: no administrator rights, no Python, no internet. Windows 10 or 11, 64-bit. The installer is not code-signed, so Windows SmartScreen may say "Windows protected your PC": click **More info**, then **Run anyway**.
+Run `Timelapse-Video-Processing-Setup.exe`, from the zip or on its own (see [Download for Windows](#download-for-windows)). The same installer is also at the top of the repository (`Timelapse-Video-Processing-Setup.exe`), with the uninstaller and `SHA256SUMS.txt`; the Releases page keeps every version. It installs for the current Windows user: no administrator rights, no Python, no internet. Windows 10 or 11, 64-bit. The installer is not code-signed, so Windows SmartScreen may say "Windows protected your PC": click **More info**, then **Run anyway**.
 
 `Uninstall-Timelapse-Video-Processing.exe` (also on the Releases page, and in Windows Settings → Apps) removes the app and, unless you tick "keep my settings", its settings and caches. Nothing ever touches the `analysis_output` folders in your data.
 

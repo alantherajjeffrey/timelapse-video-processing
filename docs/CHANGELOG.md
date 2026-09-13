@@ -6,6 +6,7 @@ The 0.9.0 app as version 1.0, with an installer under GitHub's 100 MB file limit
 
 - Installer 84 MB instead of 102 MB. The build leaves out what the app never used: Qt's software OpenGL renderer (20 MB), Pillow's AVIF plug-in, and every image codec other than those TIFF and PNG need (AVIF, JPEG XL, JPEG 2000 and others, about 40 MB).
 - The installer, the uninstaller and `SHA256SUMS.txt` are also committed at the top of the public repository; `tools/release_assets.py` refuses a file over 100 MB. The Releases page keeps every version.
+- Everything needed to install is also one zip on the Releases page, `Timelapse-Video-Processing-Windows.zip` (installer, uninstaller, README.txt with the install steps, checksums, licences), linked in a Download section at the top of the README.
 - `--diagnostic` runs a self-test of the trimmed bundle: an LZW TIFF, an MJPG AVI and an H.264 MP4, each written and read back.
 
 ## 0.9.0 (2026-09-13)
