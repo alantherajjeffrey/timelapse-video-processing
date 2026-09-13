@@ -4,5 +4,7 @@ __pycache__/
 .venv/
 dist/
 *.exe
+!Timelapse-Video-Processing-Setup.exe
+!Uninstall-Timelapse-Video-Processing.exe
 *.sha256
 analysis_output*/

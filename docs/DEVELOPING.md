@@ -47,12 +47,12 @@ A run: `scan_dataset` → `calibrate` → overlay mask → WHITE preset → `bui
 ## Set up a development environment (Windows)
 
 1. Install Python 3.12 or newer, 64-bit (development used 3.14).
-2. Run `source\Install dev environment.bat`. It creates `%LOCALAPPDATA%\EtalumaVP-dev\v0.9\.venv` (or `%ETALUMA_DEV_DIR%\.venv`), outside the repository, and installs the pinned requirements and the package in editable mode.
+2. Run `source\Install dev environment.bat`. It creates `%LOCALAPPDATA%\EtalumaVP-dev\v1.0\.venv` (or `%ETALUMA_DEV_DIR%\.venv`), outside the repository, and installs the pinned requirements and the package in editable mode.
 3. Start the app from source with `source\Launch (source).bat`, or:
 
 ```text
-"%LOCALAPPDATA%\EtalumaVP-dev\v0.9\.venv\Scripts\python.exe" -m etaluma_video
-"%LOCALAPPDATA%\EtalumaVP-dev\v0.9\.venv\Scripts\python.exe" -m etaluma_video.cli --help
+"%LOCALAPPDATA%\EtalumaVP-dev\v1.0\.venv\Scripts\python.exe" -m etaluma_video
+"%LOCALAPPDATA%\EtalumaVP-dev\v1.0\.venv\Scripts\python.exe" -m etaluma_video.cli --help
 ```
 
 Settings, caches and logs of a source run go to `%LOCALAPPDATA%\Timelapse Video Processing` like the installed app; set `ETALUMA_DATA_DIR` to keep them apart.
@@ -61,7 +61,7 @@ Settings, caches and logs of a source run go to `%LOCALAPPDATA%\Timelapse Video 
 
 ```text
 set QT_QPA_PLATFORM=offscreen
-python -m pytest tests -q --basetemp "%LOCALAPPDATA%\EtalumaVP-dev\v0.9\build\pytest"
+python -m pytest tests -q --basetemp "%LOCALAPPDATA%\EtalumaVP-dev\v1.0\build\pytest"
 ```
 
 - Everything runs on synthetic data (`tests/fixtures/make_synthetic_dataset.py`, the same generator as `tools/make_demo_dataset.py`), with burned-in overlays drawn from the real glyphs.
@@ -102,4 +102,4 @@ powershell -ExecutionPolicy Bypass -File packaging\build.ps1            (tests, 
 
 ## Versions and releases
 
-A new version changes `VERSION` in `source/etaluma_video/__init__.py` and `version` in `source/pyproject.toml`, the version strings in `packaging/installer.nsi`, `uninstaller.nsi`, `version_info.txt`, `build.ps1`, `test-installer.ps1` and `tools/build_release.bat`, the development folder name (`EtalumaVP-dev\v0.9`) in the scripts, and `tests/test_engine_outputs.py`. Record the changes in `docs/CHANGELOG.md`. Publishing: [PUBLISHING.md](PUBLISHING.md).
+A new version changes `VERSION` in `source/etaluma_video/__init__.py` and `version` in `source/pyproject.toml`, the version strings in `packaging/installer.nsi`, `uninstaller.nsi`, `version_info.txt`, `build.ps1`, `test-installer.ps1` and `tools/build_release.bat`, the development folder name (`EtalumaVP-dev\v1.0`) in the scripts, and `tests/test_engine_outputs.py`. Record the changes in `docs/CHANGELOG.md`. Publishing: [PUBLISHING.md](PUBLISHING.md).

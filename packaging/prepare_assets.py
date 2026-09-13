@@ -2,7 +2,7 @@
 installed dependencies.
 
 Run with the venv's own Python so it can see PySide6, numpy, etc.:
-    %LOCALAPPDATA%\\EtalumaVP-dev\\v0.9\\.venv\\Scripts\\python.exe packaging\\prepare_assets.py
+    %LOCALAPPDATA%\\EtalumaVP-dev\\v1.0\\.venv\\Scripts\\python.exe packaging\\prepare_assets.py
 packaging\\build.ps1 runs this automatically before the PyInstaller step.
 Stdlib only, by design (task requirement: a pip-licenses-like scan
 implemented in plain Python with no extra dependencies).
@@ -33,7 +33,7 @@ import subprocess
 import sys
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parent.parent  # Timelapse video processing software v0.9
+ROOT = Path(__file__).resolve().parent.parent  # Timelapse video processing software v1.0
 PACKAGING_DIR = ROOT / "packaging"
 OUTPUT = PACKAGING_DIR / "THIRD_PARTY_NOTICES.txt"
 

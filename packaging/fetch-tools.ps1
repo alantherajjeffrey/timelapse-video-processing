@@ -5,7 +5,7 @@
 .DESCRIPTION
     Downloads NSIS 3.11 (from the same mirror and pinned SHA-256 used by the
     Codex 0.3 packaging toolchain) and extracts it under
-    "%LOCALAPPDATA%\EtalumaVP-dev\v0.9\build\tools\nsis-3.11". Unlike Codex 0.3's fetch-tools.ps1, this
+    "%LOCALAPPDATA%\EtalumaVP-dev\v1.0\build\tools\nsis-3.11". Unlike Codex 0.3's fetch-tools.ps1, this
     script does NOT fetch WebView2 — v0.4 is a native PySide6 app with no
     embedded browser runtime.
 
@@ -26,7 +26,7 @@ $ErrorActionPreference = "Stop"
 $ProgressPreference = "SilentlyContinue"
 
 $appRoot = Split-Path $PSScriptRoot -Parent
-$devRoot = if ($env:ETALUMA_DEV_DIR) { $env:ETALUMA_DEV_DIR } else { Join-Path $env:LOCALAPPDATA "EtalumaVP-dev\v0.9" }  # .venv and build scratch live outside the version folder
+$devRoot = if ($env:ETALUMA_DEV_DIR) { $env:ETALUMA_DEV_DIR } else { Join-Path $env:LOCALAPPDATA "EtalumaVP-dev\v1.0" }  # .venv and build scratch live outside the version folder
 $toolsDir = Join-Path $devRoot "build\tools"
 New-Item -ItemType Directory -Force -Path $toolsDir | Out-Null
 

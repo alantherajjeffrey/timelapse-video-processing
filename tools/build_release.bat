@@ -4,7 +4,7 @@ rem Any arguments passed to this .bat are forwarded to build.ps1, e.g.:
 rem   build_release.bat -Install
 rem   build_release.bat -SkipTests -SkipInstaller
 setlocal
-set "DEV=%LOCALAPPDATA%\EtalumaVP-dev\v0.9"
+set "DEV=%LOCALAPPDATA%\EtalumaVP-dev\v1.0"
 if not "%ETALUMA_DEV_DIR%"=="" set "DEV=%ETALUMA_DEV_DIR%"
 
 cd /d "%~dp0.."
@@ -35,6 +35,6 @@ if errorlevel 1 (
 )
 
 echo.
-echo Build complete. "Timelapse Video Processing Setup 0.9.exe" and
+echo Build complete. "Timelapse Video Processing Setup 1.0.exe" and
 echo "Uninstall Timelapse Video Processing.exe" are at the version folder root.
 pause

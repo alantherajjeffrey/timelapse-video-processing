@@ -18,6 +18,9 @@ sys.path.insert(0, str(APP / "source"))
 
 from etaluma_video import APP_NAME, VERSION  # noqa: E402
 
+#: GitHub refuses files over 100 MiB in a repository; since 1.0 the installer is committed too.
+GITHUB_FILE_LIMIT = 100 * 1024 * 1024
+
 
 def release_names() -> dict[str, str]:
     """Built file name at the version folder root -> release file name."""
@@ -35,6 +38,9 @@ def make_release_assets(root: Path | str, out: Path | str) -> list[Path]:
         source = Path(root) / built
         if not source.is_file():
             raise SystemExit(f"{source} is missing: build first (packaging\\build.ps1).")
+        if source.stat().st_size >= GITHUB_FILE_LIMIT:
+            raise SystemExit(f"{source.name} is {source.stat().st_size / 1024 ** 2:.1f} MB, over GitHub's "
+                             "100 MB file limit: trim the bundle (packaging/app.spec).")
         target = out / release
         shutil.copy2(source, target)
         sums.append(f"{hashlib.sha256(target.read_bytes()).hexdigest()}  {release}")

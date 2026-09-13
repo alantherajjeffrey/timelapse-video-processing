@@ -88,8 +88,41 @@ def render_video_frame(record: dict, ds: Dataset, profile, bounds, variant: str 
     return img
 
 
+def avi_writer(path, fps: float, size):
+    """MJPG AVI writer: OpenCV's default backend, else its own MJPEG encoder (1.0)."""
+    writer = cv2.VideoWriter(str(path), _fourcc("MJPG"), fps, size)
+    api = getattr(cv2, "CAP_OPENCV_MJPEG", None)
+    if not writer.isOpened() and api is not None:
+        writer.release()
+        writer = cv2.VideoWriter(str(path), api, _fourcc("MJPG"), fps, size)
+    return writer
+
+
+def open_capture(path):
+    """``cv2.VideoCapture`` for a video the app wrote, on whichever backend can read it (1.0).
+
+    OpenCV's default backends first (its FFmpeg plug-in), then its own MJPEG reader for AVI files and
+    Windows Media Foundation.
+    Returns an unopened capture when nothing can read the file; callers check ``isOpened()``.
+    """
+    path = str(path)
+    backends = [cv2.CAP_ANY]
+    if path.lower().endswith(".avi") and hasattr(cv2, "CAP_OPENCV_MJPEG"):
+        backends.append(cv2.CAP_OPENCV_MJPEG)
+    if hasattr(cv2, "CAP_MSMF"):
+        backends.append(cv2.CAP_MSMF)
+    capture = None
+    for api in backends:
+        if capture is not None:
+            capture.release()
+        capture = cv2.VideoCapture(path, api)
+        if capture.isOpened():
+            return capture
+    return capture
+
+
 def _verify_video(path: Path, expected_frames: int) -> None:
-    capture = cv2.VideoCapture(str(path))
+    capture = open_capture(path)
     try:
         count = int(capture.get(cv2.CAP_PROP_FRAME_COUNT))
         ok, _ = capture.read()
@@ -195,7 +228,7 @@ def export_video(base_path: Path | str, records: list[dict], ds: Dataset, opts, 
             if expected_size is None:
                 expected_size = img.size
                 if avi:
-                    writer = cv2.VideoWriter(str(avi_path), _fourcc("MJPG"), fps, expected_size)
+                    writer = avi_writer(avi_path, fps, expected_size)
                     if not writer.isOpened():
                         raise RuntimeError(f"MJPG writer unavailable: {avi_path}")
                 if mp4:
@@ -236,7 +269,7 @@ def export_video(base_path: Path | str, records: list[dict], ds: Dataset, opts, 
 
 def video_frame(path: Path | str, index: int) -> tuple[np.ndarray, int, float]:
     """(RGB frame, frame count, fps) decoded from a written video; used by tests and the viewer."""
-    capture = cv2.VideoCapture(str(path))
+    capture = open_capture(path)
     try:
         count = int(capture.get(cv2.CAP_PROP_FRAME_COUNT))
         fps = capture.get(cv2.CAP_PROP_FPS)

@@ -28,7 +28,7 @@ Unicode True
 ; Product identity (fixed; see docs/plans/v0.4_plan.md decision 19 and 5.5)
 ; --------------------------------------------------------------------------
 !define PRODUCT_NAME "Timelapse Video Processing"
-!define PRODUCT_VERSION "0.9.0"
+!define PRODUCT_VERSION "1.0.0"
 !define PRODUCT_PUBLISHER "BIOMIS Team, SATIE laboratory, ENS Paris-Saclay"
 !define PRODUCT_COPYRIGHT "Copyright (c) 2026 the Timelapse Video Processing contributors"
 !define PRODUCT_URL "https://github.com/alantherajjeffrey/timelapse-video-processing"
@@ -46,7 +46,7 @@ Unicode True
   !define DIST_DIR "..\dist\Timelapse Video Processing"
 !endif
 !ifndef OUTFILE
-  !define OUTFILE "..\dist\Timelapse Video Processing Setup 0.9.exe"
+  !define OUTFILE "..\dist\Timelapse Video Processing Setup 1.0.exe"
 !endif
 
 Name "${PRODUCT_NAME}"
@@ -55,11 +55,11 @@ InstallDir "$LOCALAPPDATA\Programs\Timelapse Video Processing"
 InstallDirRegKey HKCU "${INSTALL_REGKEY}" "InstallDir"
 RequestExecutionLevel user
 SetCompressor /SOLID lzma
-SetCompressorDictSize 32
+SetCompressorDictSize 64
 ShowInstDetails show
 ShowUninstDetails show
 
-VIProductVersion "0.9.0.0"
+VIProductVersion "1.0.0.0"
 VIAddVersionKey "ProductName" "${PRODUCT_NAME}"
 VIAddVersionKey "FileDescription" "${PRODUCT_NAME} installer"
 VIAddVersionKey "FileVersion" "${PRODUCT_VERSION}"

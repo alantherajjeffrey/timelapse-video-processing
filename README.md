@@ -2,7 +2,7 @@
 
 A Windows desktop app that turns Etaluma LS720 microscope captures into timelapse videos, channel composites, montages and simple measurements. Open a capture folder, look at the data, set how each fluorescence channel should look, and press one button.
 
-For Etaluma LS720 captures. Developed by **BIOMIS Team, SATIE laboratory, ENS Paris-Saclay**. Version 0.9. MIT licence. For research use only; not for diagnostic or clinical use.
+For Etaluma LS720 captures. Developed by **BIOMIS Team, SATIE laboratory, ENS Paris-Saclay**. Version 1.0. MIT licence. For research use only; not for diagnostic or clinical use.
 
 > This project is independent: it is not affiliated with, endorsed by or supported by Etaluma, Inc. Etaluma, Lumaview and LS720 are trademarks of Etaluma, Inc.
 
@@ -23,7 +23,7 @@ For Etaluma LS720 captures. Developed by **BIOMIS Team, SATIE laboratory, ENS Pa
 
 ## Download and install
 
-Download [`Timelapse-Video-Processing-Setup.exe`](https://github.com/alantherajjeffrey/timelapse-video-processing/releases/latest/download/Timelapse-Video-Processing-Setup.exe) from the [Releases page](https://github.com/alantherajjeffrey/timelapse-video-processing/releases/latest) and run it. The installers are only there, not among the code folders: GitHub does not accept files over 100 MB in the code. It installs for the current Windows user: no administrator rights, no Python, no internet. Windows 10 or 11, 64-bit. The installer is not code-signed, so Windows SmartScreen may say "Windows protected your PC": click **More info**, then **Run anyway**.
+Download [`Timelapse-Video-Processing-Setup.exe`](https://github.com/alantherajjeffrey/timelapse-video-processing/releases/latest/download/Timelapse-Video-Processing-Setup.exe) from the [Releases page](https://github.com/alantherajjeffrey/timelapse-video-processing/releases/latest) and run it. The same installer is also at the top of the repository (`Timelapse-Video-Processing-Setup.exe`), with the uninstaller and `SHA256SUMS.txt`; the Releases page keeps every version. It installs for the current Windows user: no administrator rights, no Python, no internet. Windows 10 or 11, 64-bit. The installer is not code-signed, so Windows SmartScreen may say "Windows protected your PC": click **More info**, then **Run anyway**.
 
 `Uninstall-Timelapse-Video-Processing.exe` (also on the Releases page, and in Windows Settings → Apps) removes the app and, unless you tick "keep my settings", its settings and caches. Nothing ever touches the `analysis_output` folders in your data.
 

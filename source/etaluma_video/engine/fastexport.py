@@ -39,7 +39,7 @@ import numpy as np
 from PIL import Image
 
 from . import display
-from .export import VIDEO_QUALITY, _fourcc, _Mp4Pipe, _verify_video, playback_fps
+from .export import VIDEO_QUALITY, _fourcc, _Mp4Pipe, _verify_video, playback_fps, avi_writer
 from .histograms import default_workers
 from .jobs import PROGRESS_PREFIX, JobCancelled, check_cancel
 from .models import CHANNEL_ORDER, FLUOR_CHANNELS, DisplayProfile
@@ -101,7 +101,7 @@ class VideoSink:
         self._pipe = None
         self.base.parent.mkdir(parents=True, exist_ok=True)
         if avi:
-            self._writer = cv2.VideoWriter(str(self.avi_path), _fourcc("MJPG"), self.fps, size)
+            self._writer = avi_writer(self.avi_path, self.fps, size)
             if not self._writer.isOpened():
                 raise RuntimeError(f"MJPG writer unavailable: {self.avi_path}")
         if mp4:

@@ -52,10 +52,10 @@ RequestExecutionLevel user
 Icon "..\source\etaluma_video\assets\icon.ico"
 ShowInstDetails nevershow
 
-VIProductVersion "0.9.0.0"
+VIProductVersion "1.0.0.0"
 VIAddVersionKey "ProductName" "${PRODUCT_NAME} Uninstaller"
 VIAddVersionKey "FileDescription" "Standalone uninstaller for ${PRODUCT_NAME}"
-VIAddVersionKey "FileVersion" "0.9.0"
+VIAddVersionKey "FileVersion" "1.0.0"
 VIAddVersionKey "CompanyName" "BIOMIS Team, SATIE laboratory, ENS Paris-Saclay"
 VIAddVersionKey "LegalCopyright" "Copyright (c) 2026 the Timelapse Video Processing contributors"
 

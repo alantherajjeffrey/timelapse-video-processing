@@ -1,6 +1,6 @@
 """Timelapse Video Processing: timelapse videos, composites, montages and quantification for Etaluma LS720 captures."""
 
-VERSION = "0.9.0"
+VERSION = "1.0.0"
 APP_NAME = "Timelapse Video Processing"
 APP_SUBTITLE = "for Etaluma LS720 captures"
 USER_DATA_DIRNAME = "Timelapse Video Processing"

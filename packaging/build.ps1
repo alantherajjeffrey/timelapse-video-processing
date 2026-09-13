@@ -19,7 +19,7 @@
          the version folder root and write "<file>.sha256" sidecars next
          to each (format: "<lowercase sha256>  <filename>",
          sha256sum-compatible).
-    Scratch (pytest, NSIS) lives in %LOCALAPPDATA%\EtalumaVP-dev\v0.9\build, or $env:ETALUMA_DEV_DIR (this
+    Scratch (pytest, NSIS) lives in %LOCALAPPDATA%\EtalumaVP-dev\v1.0\build, or $env:ETALUMA_DEV_DIR (this
     script Push-Location's there) and are gitignored.
 
     Every external tool invocation is followed by an explicit $LASTEXITCODE
@@ -30,7 +30,7 @@
 
 .PARAMETER Python
     Path to the Python interpreter to build with. Default:
-    "%LOCALAPPDATA%\EtalumaVP-dev\v0.9\.venv\Scripts\python.exe" (or $env:ETALUMA_DEV_DIR\.venv).
+    "%LOCALAPPDATA%\EtalumaVP-dev\v1.0\.venv\Scripts\python.exe" (or $env:ETALUMA_DEV_DIR\.venv).
 
 .PARAMETER Install
     Also run "pip install -r source\requirements.lock.txt" into -Python
@@ -61,7 +61,7 @@ $ProgressPreference = "SilentlyContinue"
 
 $packagingDir = $PSScriptRoot
 $appRoot = Split-Path $packagingDir -Parent
-$devRoot = if ($env:ETALUMA_DEV_DIR) { $env:ETALUMA_DEV_DIR } else { Join-Path $env:LOCALAPPDATA "EtalumaVP-dev\v0.9" }  # .venv and build scratch live outside the version folder
+$devRoot = if ($env:ETALUMA_DEV_DIR) { $env:ETALUMA_DEV_DIR } else { Join-Path $env:LOCALAPPDATA "EtalumaVP-dev\v1.0" }  # .venv and build scratch live outside the version folder
 
 if (-not $Python) {
     $Python = Join-Path $devRoot ".venv\Scripts\python.exe"
@@ -141,7 +141,7 @@ try {
         throw "makensis not found at '$makensis'. Run packaging\fetch-tools.ps1 first."
     }
 
-    $builtSetup = Join-Path $distPath "Timelapse Video Processing Setup 0.9.exe"
+    $builtSetup = Join-Path $distPath "Timelapse Video Processing Setup 1.0.exe"
     $builtUninstall = Join-Path $distPath "Uninstall Timelapse Video Processing.exe"
     $payload = Join-Path $distPath "Timelapse Video Processing"
     Invoke-Checked "Building the installer (installer.nsi)" {
@@ -156,7 +156,7 @@ try {
         }
     }
 
-    $rootSetup = Join-Path $appRoot "Timelapse Video Processing Setup 0.9.exe"
+    $rootSetup = Join-Path $appRoot "Timelapse Video Processing Setup 1.0.exe"
     $rootUninstall = Join-Path $appRoot "Uninstall Timelapse Video Processing.exe"
     Copy-Item -LiteralPath $builtSetup -Destination $rootSetup -Force
     Copy-Item -LiteralPath $builtUninstall -Destination $rootUninstall -Force

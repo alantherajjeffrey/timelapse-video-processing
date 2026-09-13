@@ -45,8 +45,10 @@ and turn on Issues (Settings → General → Features) if it is off.
 
 ```text
 python tools/release_assets.py "%TEMP%\etvp-release"
-gh release create v0.9.0 "%TEMP%\etvp-release\Timelapse-Video-Processing-Setup.exe" "%TEMP%\etvp-release\Uninstall-Timelapse-Video-Processing.exe" "%TEMP%\etvp-release\SHA256SUMS.txt" --target main --title "Timelapse Video Processing 0.9.0" --notes-file docs/RELEASE_NOTES_0.9.0.md
+gh release create v1.0.0 "%TEMP%\etvp-release\Timelapse-Video-Processing-Setup.exe" "%TEMP%\etvp-release\Uninstall-Timelapse-Video-Processing.exe" "%TEMP%\etvp-release\SHA256SUMS.txt" --target main --title "Timelapse Video Processing 1.0.0" --notes-file docs/RELEASE_NOTES_1.0.0.md
 ```
+
+Since 1.0 the same three files are also committed at the top of the public repository: copy them from `%TEMP%\etvp-release` into `public repo\timelapse-video-processing\` before the commit of step 4. Each must stay under GitHub's 100 MB file limit (`tools/release_assets.py` refuses a bigger one).
 
 The release files get fixed names without spaces or version numbers (GitHub would turn spaces into dots), so the README's link `releases/latest/download/Timelapse-Video-Processing-Setup.exe` always gives the newest installer. The installer is about 100 MB: fine as a release file (2 GB limit), too big for the code itself (100 MB limit), which is why it is never committed. Help → Check for updates reads the repository's latest release, so publish each version as a normal release (not a draft or pre-release) tagged `vX.Y.Z`.
 

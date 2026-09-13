@@ -48,7 +48,7 @@
       7. Write a JSON report to <dev folder>\build\installer[-<ReportTag>].json.
 
 .PARAMETER Setup
-    Path to "Timelapse Video Processing Setup 0.9.exe" (built by build.ps1).
+    Path to "Timelapse Video Processing Setup 1.0.exe" (built by build.ps1).
     The standalone uninstaller is expected next to it, as
     "Uninstall Timelapse Video Processing.exe".
 
@@ -74,7 +74,7 @@ $ErrorActionPreference = "Stop"
 
 $packagingDir = $PSScriptRoot
 $appRoot = Split-Path $packagingDir -Parent
-$devRoot = if ($env:ETALUMA_DEV_DIR) { $env:ETALUMA_DEV_DIR } else { Join-Path $env:LOCALAPPDATA "EtalumaVP-dev\v0.9" }  # .venv and build scratch live outside the version folder
+$devRoot = if ($env:ETALUMA_DEV_DIR) { $env:ETALUMA_DEV_DIR } else { Join-Path $env:LOCALAPPDATA "EtalumaVP-dev\v1.0" }  # .venv and build scratch live outside the version folder
 $buildDir = Join-Path $devRoot "build"
 New-Item -ItemType Directory -Force -Path $buildDir | Out-Null
 
@@ -179,7 +179,7 @@ try {
 
     $reg = Get-ItemProperty -LiteralPath $uninstKeyPath
     $result.registry_ok = ($reg.DisplayName -eq "Timelapse Video Processing") -and
-        ($reg.DisplayVersion -eq "0.9.0") -and
+        ($reg.DisplayVersion -eq "1.0.0") -and
         ($reg.Publisher -eq "BIOMIS Team, SATIE laboratory, ENS Paris-Saclay") -and
         ($reg.UninstallString -match [regex]::Escape($installedUninstaller)) -and
         ($reg.NoModify -eq 1) -and

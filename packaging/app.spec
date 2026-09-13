@@ -144,9 +144,24 @@ _STRIP_DEST_PREFIXES = tuple(
 )
 
 
+# 1.0: what the app never uses, left out so the installer stays under GitHub's 100 MB file limit.
+# Qt's software OpenGL renderer, Pillow's AVIF plug-in, and every image codec but those TIFF and
+# PNG need. OpenCV's FFmpeg plug-in stays: this OpenCV build reads MP4 files only through it.
+_UNUSED_DEST_PREFIXES = ("PySide6/opengl32sw.dll", "PIL/_avif")
+IMAGECODECS_KEEP = ("_imcd", "_shared", "_shared_cython", "_zlib", "_deflate", "_lzma", "_zstd", "_png", "_jpeg8")
+
+
+def _unused_imagecodecs(dest):
+    if not dest.startswith("imagecodecs/"):
+        return False
+    name = dest.split("/", 1)[1]
+    return "/" not in name and name.startswith("_") and name.endswith((".pyd", ".dll")) \
+        and name.split(".", 1)[0] not in IMAGECODECS_KEEP
+
+
 def _survives_trim(entry):
     dest = entry[0].replace("\\", "/")
-    return not dest.startswith(_STRIP_DEST_PREFIXES)
+    return not dest.startswith(_STRIP_DEST_PREFIXES + _UNUSED_DEST_PREFIXES) and not _unused_imagecodecs(dest)
 
 
 a = Analysis(

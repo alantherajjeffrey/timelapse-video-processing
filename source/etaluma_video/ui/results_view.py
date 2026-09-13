@@ -216,7 +216,9 @@ def poster(path: Path, size: int) -> np.ndarray:
     import cv2
 
     if path.suffix.lower() in VIDEO_SUFFIXES:
-        cap = cv2.VideoCapture(str(path))
+        from ..engine.export import open_capture  # noqa: WPS433
+
+        cap = open_capture(path)
         try:
             ok, frame = cap.read()
         finally:

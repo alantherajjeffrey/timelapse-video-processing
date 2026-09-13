@@ -80,6 +80,60 @@ def install_excepthook() -> None:
     threading.excepthook = lambda args: hook(args.exc_type, args.exc_value, args.exc_traceback)
 
 
+def _selftest() -> dict:
+    """What the trimmed bundle must still do (1.0): LZW TIFF, MJPG AVI and H.264 MP4, written and read back."""
+    import tempfile
+
+    import numpy as np
+
+    results: dict[str, str] = {}
+    frame = (np.indices((64, 64)).sum(axis=0) % 256).astype(np.uint8)
+    rgb = np.ascontiguousarray(np.dstack([frame, frame[::-1], frame.T]))
+    with tempfile.TemporaryDirectory(prefix="tvp_selftest_") as tmp:
+        folder = Path(tmp)
+        try:
+            import tifffile
+
+            tifffile.imwrite(folder / "t.tif", rgb, compression="lzw")
+            results["tiff_lzw"] = "ok" if np.array_equal(tifffile.imread(folder / "t.tif"), rgb) else "mismatch"
+        except Exception as exc:
+            results["tiff_lzw"] = f"failed: {type(exc).__name__}: {exc}"
+        try:
+            import cv2
+
+            from .engine.export import avi_writer, open_capture
+
+            writer = avi_writer(folder / "t.avi", 5.0, (64, 64))
+            for _ in range(4):
+                writer.write(rgb[:, :, ::-1].copy())
+            writer.release()
+            capture = open_capture(folder / "t.avi")
+            ok, _frame = capture.read()
+            count = int(capture.get(cv2.CAP_PROP_FRAME_COUNT) or 0)
+            capture.release()
+            results["avi_mjpg"] = "ok" if ok and count == 4 else f"read {ok}, {count} frames"
+        except Exception as exc:
+            results["avi_mjpg"] = f"failed: {type(exc).__name__}: {exc}"
+        try:
+            import imageio_ffmpeg
+
+            from .engine.export import open_capture
+
+            sink = imageio_ffmpeg.write_frames(str(folder / "t.mp4"), (64, 64), fps=5, codec="libx264",
+                                               pix_fmt_in="rgb24", pix_fmt_out="yuv420p", macro_block_size=1)
+            sink.send(None)
+            for _ in range(4):
+                sink.send(rgb.tobytes())
+            sink.close()
+            capture = open_capture(folder / "t.mp4")
+            ok, _frame = capture.read()
+            capture.release()
+            results["mp4_h264"] = "ok" if ok else "written, not readable"
+        except Exception as exc:
+            results["mp4_h264"] = f"failed: {type(exc).__name__}: {exc}"
+    return results
+
+
 def diagnostic(path: str | Path) -> int:
     """Write a small environment report and exit (used by packaging/test-installer.ps1).
 
@@ -129,6 +183,7 @@ def diagnostic(path: str | Path) -> int:
         "ffmpeg_exists": ffmpeg_exists,
         "user_data_dir": str(user_data_dir()),
         "session_log": str(setup_logging(console=False) or ""),
+        "selftest": _selftest(),
     }
     target = Path(path).expanduser()
     target.parent.mkdir(parents=True, exist_ok=True)

@@ -125,7 +125,9 @@ class _FrameReader(QObject):
         import cv2  # noqa: WPS433 - heavy import, only needed here
 
         self._cv2 = cv2
-        self._capture = cv2.VideoCapture(str(path))
+        from ..engine.export import open_capture  # noqa: WPS433
+
+        self._capture = open_capture(path)
         self.opened = bool(self._capture.isOpened())
         self.frames = int(self._capture.get(cv2.CAP_PROP_FRAME_COUNT) or 0) if self.opened else 0
         fps = float(self._capture.get(cv2.CAP_PROP_FPS) or 0.0) if self.opened else 0.0

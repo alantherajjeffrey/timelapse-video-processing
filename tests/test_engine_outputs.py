@@ -119,7 +119,7 @@ def test_fixed_outputs_preserve_raw_measurements_sources_and_existing_outputs(tm
 
     metadata = json.loads((out / "info" / f"{ds.name}_metadata.json").read_text(encoding="utf-8"))
     assert metadata["status"] == "complete"
-    assert metadata["app_version"] == "0.9.0"
+    assert metadata["app_version"] == "1.0.0"
     assert metadata["effective_mode"] == "fixed"
     assert metadata["calibration"]["pixel_size_um"] == pytest.approx(0.411)
     assert metadata["processing_seconds"] > 0

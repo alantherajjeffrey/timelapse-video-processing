@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.0.0 (2026-09-13)
+
+The 0.9.0 app as version 1.0, with an installer under GitHub's 100 MB file limit, so it can also sit at the top of the repository.
+
+- Installer 84 MB instead of 102 MB. The build leaves out what the app never used: Qt's software OpenGL renderer (20 MB), Pillow's AVIF plug-in, and every image codec other than those TIFF and PNG need (AVIF, JPEG XL, JPEG 2000 and others, about 40 MB).
+- The installer, the uninstaller and `SHA256SUMS.txt` are also committed at the top of the public repository; `tools/release_assets.py` refuses a file over 100 MB. The Releases page keeps every version.
+- `--diagnostic` runs a self-test of the trimmed bundle: an LZW TIFF, an MJPG AVI and an H.264 MP4, each written and read back.
+
 ## 0.9.0 (2026-09-13)
 
 The first public release, in a new GitHub repository (the short-lived 0.8.0 upload was withdrawn). The app is 0.8.0 as renamed Timelapse Video Processing (below), with:

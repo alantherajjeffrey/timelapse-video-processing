@@ -43,7 +43,7 @@ How the parts of 0.7 fit together (0.4 structure, later additions marked). A fri
 ## Running
 
 ```
-set DEV=%LOCALAPPDATA%\EtalumaVP-dev\v0.9
+set DEV=%LOCALAPPDATA%\EtalumaVP-dev\v1.0
 set QT_QPA_PLATFORM=offscreen
 "%DEV%\.venv\Scripts\python.exe" -m pytest tests -q --basetemp="%DEV%\build\pytest"
 "%DEV%\.venv\Scripts\python.exe" -m etaluma_video

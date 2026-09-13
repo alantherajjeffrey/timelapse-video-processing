@@ -26,12 +26,12 @@ VSVersionInfo(
           [
             StringStruct(u"CompanyName", u"BIOMIS Team, SATIE laboratory, ENS Paris-Saclay"),
             StringStruct(u"FileDescription", u"Timelapse Video Processing"),
-            StringStruct(u"FileVersion", u"0.9.0.0"),
+            StringStruct(u"FileVersion", u"1.0.0.0"),
             StringStruct(u"InternalName", u"Timelapse Video Processing"),
             StringStruct(u"LegalCopyright", u"Copyright (c) 2026 the Timelapse Video Processing contributors"),
             StringStruct(u"OriginalFilename", u"Timelapse Video Processing.exe"),
             StringStruct(u"ProductName", u"Timelapse Video Processing"),
-            StringStruct(u"ProductVersion", u"0.9.0.0"),
+            StringStruct(u"ProductVersion", u"1.0.0.0"),
           ],
         )
       ]
